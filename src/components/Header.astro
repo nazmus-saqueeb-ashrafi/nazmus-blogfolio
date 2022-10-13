@@ -1,0 +1,35 @@
+---
+import Nicon from './icons/Nicon'
+import ThemeToggle from './ThemeToggle'
+import DropDownMenu from './DropDownMenu'
+
+const allPosts = await Astro.glob('../pages/posts/*.md')
+const allTags = new Set<string>()
+allPosts.map(post => {
+  post.frontmatter.tags &&
+    post.frontmatter.tags.map((tag: string) => allTags.add(tag))
+})
+---
+
+<header class="fixed w-full p-2 z-20 backdrop-blur-md">
+  <div class="mx-auto max-w-3xl">
+    <nav class="flex items-center gap-3 text-base">
+      <a href="/" class="group">
+        <h2 class="font-bold font-['Montserrat'] tracking-tighter p-2  text-lg">
+          <Nicon/>
+          Nazmus Ashrafi
+        </h2>
+      </a>
+      <div class="items-center gap-6 hidden md:flex">
+        <!-- <HeaderLink href={HOMEPAGE_URL}>About</HeaderLink>
+        <HeaderLink
+          href="https://github.com/.."
+          target="_blank"><IoLogoGithub />Source</HeaderLink
+        > -->
+      </div>
+      <div class="flex-1"></div>
+      <ThemeToggle client:visible />
+      <DropDownMenu client:visible tags={Array.from(allTags)} />
+    </nav>
+  </div>
+</header>

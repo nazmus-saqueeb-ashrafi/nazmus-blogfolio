@@ -1,0 +1,117 @@
+---
+import Body from '../components/Body.astro'
+import BaseHead from '../components/BaseHead.astro';
+import { SITE_TITLE, SITE_DESCRIPTION, HOMEPAGE_URL } from '../config';
+import Header from '../components/Header.astro';
+import MonitorAnimation from '../components/MonitorAnimation';
+import Content from '../components/Content.astro';
+import { Image } from '@astrojs/image/components'
+import Footer from '../components/Footer.astro';
+
+
+const posts = (await Astro.glob('./posts/*.md')).sort(
+  (a: any, b: any) =>
+    new Date(b.frontmatter.createdAt).valueOf() -
+    new Date(a.frontmatter.createdAt).valueOf()
+)
+
+---
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+
+  <Body>
+    <!-- nav -->
+    <Header title={SITE_TITLE} />
+
+    <!-- <main class="pt-[56px]">
+      <div >
+        <Screen /> 
+      </div>
+    </main> -->
+
+    <!-- intro and 3d object -->
+    <div class="flex flex-col justify-center content-center">
+
+      <!-- intro - fm -->
+      <h1 class="text-center text-6xl font-bold mt-28 lg:mr-96 lg:ml-96 md:mr-20 md:ml-20 sm:mr-32 sm:ml-32">Interested in the bleeding edge.</h1>
+
+      <!-- 3d object - fm -->
+      <div class="flex mt-0 justify-center ">
+        <MonitorAnimation client:only="react" />
+      </div>
+
+    </div>
+
+    
+    <main class="pt-[0px]">
+      <!-- <Masthead /> -->
+      <Content>
+
+        <!-- intro para - fm -->
+        <section>
+          <p class="mb-4 indent-4">
+            Nazmus is a Software Engineering student based in Dhaka with a passion for building digital services/stuff he wants. He has a knack for all things development related, from planning and designing all the way to solving real-life problems with code. When not online, he loves fiddling around with digital audio workstations. Currently, in his last year of university, he is looking for a full-time job in the software industry.
+            <!-- <a
+              class="inline-flex items-center gap-1 indent-1 text-orange-500"
+              href={HOMEPAGE_URL}
+              >Learn more about me <IoArrowForward className="inline" />
+            </a> -->
+          </p>
+        </section>
+
+        <!-- portfolio button - fm -->
+        <div class="mt-4 mb-4 flex justify-center">
+          <button type="button" class="text-blue-900 bg-blue-200 hover:bg-blue-300 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-200 dark:hover:bg-blue-300 dark:focus:ring-blue-400">
+          My portfolio
+            <svg aria-hidden="true" class="w-5 h-5 ml-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+            <span class="sr-only">My portfolio</span>
+          </button>
+
+        </div>
+
+        <!-- blog posts - fm -->
+        <!-- <section>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {
+            posts.map(post => (
+              <li class="text-center mb-4">
+                <a href={post.url}>
+                  <Image
+                    class="border border-slate-300 dark:border-zinc-700 rounded-xl"
+                    src={post.frontmatter.heroImage}
+                    format="jpeg"
+                    width={720 * 2}
+                    aspectRatio={2.0}
+                    alt="Thumbnail"
+                  />
+                  <div class="mt-3 text-xl font-bold">
+                    {post.frontmatter.title}
+                  </div>
+                  {post.frontmatter.description && (
+                    <div class="opacity-70">
+                      {post.frontmatter.description}
+                    </div>
+                  )}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </section> -->
+        
+        <!-- <CreatedWithSection /> -->
+
+      </Content>
+
+    </main>
+
+    <Footer />
+
+  </Body>
+
+</html>
