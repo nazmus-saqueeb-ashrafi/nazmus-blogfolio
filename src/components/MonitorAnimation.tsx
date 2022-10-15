@@ -60,7 +60,7 @@ export default () => {
       }>
       <Fiber.Canvas>
 
-        <Drei.PerspectiveCamera makeDefault zoom={1.2} />
+        <Drei.PerspectiveCamera makeDefault zoom={1.1} />
         <Drei.OrbitControls enablePan enableZoom enableRotate />
         {/* <Drei.Sky
           distance={450000}
