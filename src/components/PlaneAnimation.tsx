@@ -6,8 +6,9 @@ import {useRef} from "react"
 import { useFrame } from "@react-three/fiber";
 
 
+
 export default () => {
-  const { scene } = Drei.useGLTF("/4aiscreenop.glb");
+  const { scene } = Drei.useGLTF("/hovercar.glb");
 
   
 
@@ -16,16 +17,25 @@ export default () => {
     const ref = useRef()
     useFrame((state) => {
     const t = state.clock.getElapsedTime()
-    // ref.current.rotation.x = -Math.PI / 1.75 + Math.cos(t / 4) / 8
-    // ref.current.rotation.y = Math.sin(t / 4) / 8
-    // ref.current.rotation.z = (1 + Math.sin(t / 1.5)) / 20
-    // ref.current.position.y = (1 + Math.sin(t / 1.5)) / 10
-    
-    ref.current.rotation.y = t/4
-    ref.current.rotation.z = 0
-    ref.current.rotation.x = 0
 
-    ref.current.position.y = -3
+    // ref.current.rotation.x = -Math.PI / 1.75 + Math.cos(t / 4) / 28
+    // ref.current.rotation.y = Math.sin(t / 4) / 8
+
+    ref.current.rotation.z = (1 + Math.sin(t / 1.5)) / 20
+    ref.current.position.y = (1 + Math.sin(t / 1.5)) / 2
+    ref.current.rotation.z = (1 + Math.sin(t / 1.5)) / -20
+
+    ref.current.position.y = -1
+
+    ref.current.rotation.y = t/4
+    
+    // ref.current.rotation.x = 0
+
+    
+
+    // ref.current.rotation.x = -8
+    
+    
     
     
   })
@@ -34,6 +44,7 @@ export default () => {
 <group ref={ref} dispose={null}>
           
           <primitive scale={[1, 1, 1]} object={scene}
+        //   scale={10} rotation={[Math.PI / 2, 0, 0]} position={[180, -350, 50]} transform occlude
           
           
             />
@@ -60,7 +71,7 @@ export default () => {
       }>
       <Fiber.Canvas>
 
-        <Drei.PerspectiveCamera makeDefault zoom={1.2} />
+        <Drei.PerspectiveCamera makeDefault zoom={1.5} />
         <Drei.OrbitControls enablePan enableZoom enableRotate />
         {/* <Drei.Sky
           distance={450000}
@@ -74,7 +85,7 @@ export default () => {
         config={{ mass: 2, tension: 0 }}
         
         position={[0, 0.25, 0]} 
-        scale={0.003}
+        scale={0.01}
         rotation={[0, 0.3, 0]}
         polar={[-Math.PI / 3, Math.PI / 3]}
         azimuth={[-Math.PI / 1.4, Math.PI / 2]}>

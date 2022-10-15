@@ -7,6 +7,9 @@ import MonitorAnimation from '../components/MonitorAnimation';
 import Content from '../components/Content.astro';
 import { Image } from '@astrojs/image/components'
 import Footer from '../components/Footer.astro';
+import PlaneAnimation from '../components/PlaneAnimation';
+
+import RandomModel from '../components/RandomModel';
 
 
 const posts = (await Astro.glob('./posts/*.md')).sort(
@@ -14,6 +17,8 @@ const posts = (await Astro.glob('./posts/*.md')).sort(
     new Date(b.frontmatter.createdAt).valueOf() -
     new Date(a.frontmatter.createdAt).valueOf()
 )
+
+
 
 ---
 
@@ -38,11 +43,13 @@ const posts = (await Astro.glob('./posts/*.md')).sort(
     <div class="flex flex-col justify-center content-center">
 
       <!-- intro - fm -->
-      <h1 class="text-center text-6xl font-bold mt-28 lg:mr-96 lg:ml-96 md:mr-20 md:ml-20 sm:mr-32 sm:ml-32">Interested in the bleeding edge.</h1>
+      <h1 class="text-center text-6xl font-bold mt-28 lg:mr-96 lg:ml-96 md:mr-20 md:ml-20 sm:mr-32 sm:ml-32 mr-9 ml-9">Interested in the bleeding edge.</h1>
 
       <!-- 3d object - fm -->
       <div class="flex mt-0 justify-center ">
-        <MonitorAnimation client:only="react" />
+        <!-- <MonitorAnimation client:only="react" /> -->
+        <!-- <PlaneAnimation client:only="react" /> -->
+        <RandomModel client:only="react" />
       </div>
 
     </div>
@@ -55,7 +62,7 @@ const posts = (await Astro.glob('./posts/*.md')).sort(
         <!-- intro para - fm -->
         <section>
           <p class="mb-4 indent-4">
-            Nazmus is a software engineering student based in Dhaka with a passion for building digital services/stuff he wants. He has a knack for all things development related, from planning and designing all the way to solving real-life problems with code. When not online, he loves fiddling around with digital audio workstations. Currently, in his last year of a software engineering degree.
+            Nazmus is a software engineering student based in Dhaka with a passion for building digital services/stuff he wants. He has a knack for all things development related, from planning and designing all the way to solving real-life problems with code. When not online, he loves travelling to scenic places. Currently, in his last year of a software engineering degree.
             <!-- <a
               class="inline-flex items-center gap-1 indent-1 text-orange-500"
               href={HOMEPAGE_URL}
