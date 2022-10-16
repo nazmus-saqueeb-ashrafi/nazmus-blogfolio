@@ -42,7 +42,7 @@ A vaccination application with complete documentation.
 |                                                               |     |
 | ------------------------------------------------------------- | --- |
 | <span id='badge'>Platform</span> Web                          |
-| <span id='badge'>Stack</span> Django, postgresql              |
+| <span id='badge'>Stack</span> Django, Tailwind, Postgresql    |
 | <span id='badge'>Heroku Link</span> [VaxApp][heroku link]     |
 | <span id='badge'>Documentation Link</span> [VaxApp][doc link] |
 | <span id='badge'>Github Link</span> [VaxApp][github link]     |
@@ -53,8 +53,8 @@ This project was a course project. The aim of this project was to make something
 
 <br/><br/>
 
-Once the vaccination slot is complete the system allowed for accumulation of data about the vaccination slot. This data can then be used in order to get an estimate of the kind of people getting vaccinated in our society. My aim was to make this application a tool to collect data from different areas of of the country, as well as to make the process of vaccination easy.
+Once the vaccination slot is complete the system allowed for accumulation of data about the vaccination slot. This data can then be used in order to get an estimate of the kind of people getting vaccinated in the society. My aim was to make this application a tool to collect data from different areas of the country, as well as to make the process of vaccination easier for concerned authority.
 <br/><br/>
 
-This was also the first application that I developed and also made a solid documentation for, complete with requirement elicitation, and all kinds of diagrams like use case diagram, sequence diagram, activity diagram, ERD etc.
+This was also the first application that I developed and also made a solid documentation for, complete with requirement elicitation, and all kinds of diagrams like use case diagram, sequence diagrams, activity diagrams, ERD etc.
 <br/><br/>
