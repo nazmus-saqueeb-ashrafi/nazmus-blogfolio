@@ -33,7 +33,7 @@ slug: vax app
 </style>
 
 [heroku link]: https://vaxapp2878.herokuapp.com/
-[doc link]: https://daffodilvarsity-my.sharepoint.com/:w:/g/personal/nazmus11-6174_diu_edu_bd/EZUqbBQSNk9LjGYdrUNeKK8B47XeK7yt4phfRfCs9QFTng?e=6iGrkJ
+[doc link]: https://daffodilvarsity-my.sharepoint.com/:w:/g/personal/nazmus11-6174_diu_edu_bd/EZUqbBQSNk9LjGYdrUNeKK8B47XeK7yt4phfRfCs9QFTng?rtime=DV16Z2uv2kg
 [github link]: https://github.com/nazmus-saqueeb-ashrafi/vaxapp-192-35-2878
 
 A vaccination application with complete documentation.
@@ -50,7 +50,6 @@ A vaccination application with complete documentation.
 <br>
 
 This project was a course project at the end of 3rd year of my BS in Software Engineering degree. The aim of this project was to make something which is useful to the general public and in not commonly found or integrated strongly in our society. This project was to produce a simple to use vaccination application which would be able to create vaccination slots and add patients to it.
-
 <br/><br/>
 
 Once the vaccination slot is complete the system allowed for accumulation of data about the vaccination slot. This data can then be used in order to get an estimate of the kind of people getting vaccinated in the society. My aim was to make this application a tool to collect data from different areas of the country, as well as to make the process of vaccination easier for concerned authority.
