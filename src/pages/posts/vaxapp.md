@@ -1,14 +1,14 @@
 ---
-description: A timer application for Android
+description: A website to make the process of vaccination and data collection easy.
 public: true
 layout: ../../layouts/BlogPost.astro
-title: Multi-timer
-createdAt: 1663138523827
-updatedAt: 1663138544072
+title: Vax App
+createdAt: 1663138523828
+updatedAt: 1663138544073
 tags:
   - Projects
 heroImage: /posts/vaxapp.png
-slug: multi-timer
+slug: vax app
 ---
 
 <style>
@@ -39,17 +39,17 @@ slug: multi-timer
 A vaccination application with complete documentation.
 <br/><br/>
 
-|                                                               |     |
-| ------------------------------------------------------------- | --- |
-| <span id='badge'>Platform</span> Web                          |
-| <span id='badge'>Stack</span> Django, Tailwind, Postgresql    |
-| <span id='badge'>Heroku Link</span> [VaxApp][heroku link]     |
-| <span id='badge'>Documentation Link</span> [VaxApp][doc link] |
-| <span id='badge'>Github Link</span> [VaxApp][github link]     |
+|                                                                     |     |
+| ------------------------------------------------------------------- | --- |
+| <span id='badge'>Platform</span> Web                                |
+| <span id='badge'>Stack</span> Django, Tailwind, Postgresql          |
+| <span id='badge'>Live Link</span> [Heroku Link][heroku link]        |
+| <span id='badge'>Documentation Link</span> [MS Word Link][doc link] |
+| <span id='badge'>Github Link</span> [Github Link][github link]      |
 
 <br>
 
-This project was a course project. The aim of this project was to make something which is useful to the general public and in not commonly found or integrated in current industry. This project was be to produce a simple to use vaccination application which will be able to create vaccination slots and add patients to it.
+This project was a course project at the end of 3rd year of my BS in Software Engineering degree. The aim of this project was to make something which is useful to the general public and in not commonly found or integrated strongly in our society. This project was to produce a simple to use vaccination application which would be able to create vaccination slots and add patients to it.
 
 <br/><br/>
 
