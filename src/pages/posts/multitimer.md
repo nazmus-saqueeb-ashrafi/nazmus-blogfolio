@@ -1,5 +1,5 @@
 ---
-description: A timer application for Android
+description: A timer application for Android.
 public: true
 layout: ../../layouts/BlogPost.astro
 title: Multi-timer
