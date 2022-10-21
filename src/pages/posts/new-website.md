@@ -9,6 +9,7 @@ tags:
   - Blog
 heroImage: /posts/new-website0.png
 slug: new-portfolio-website
+fbImage: /posts/new-website1.png
 ---
 
 A solid portfolio is nessasity for all in this day and age. And to design a solid portfolio the information that the portfolio presents shoud be well organized and detailed. This is why I have decided that it was time to upgrade my portfolio website to a blog + portfolio website. The blog will allow me to write details about the project and present it in a fashion taht is detailed and more readed friendly. It will also present me with the opportunity to write short fun blogs about random thing in my life that I find noteworthy like this piece about why I choose Astro to built the website.
@@ -40,7 +41,7 @@ Querying those mardown files what you have created for you blog is also extremel
 
 ## Bring your own frameworks
 
-Astro allows for React integration among many others. I needed to React and [react-three-fiber](https://github.com/pmndrs/react-three-fiber) to produce a 3d model on my landing page. This was no problem in Astro and it was even easy and smooth.
+Astro allows for React integration among many others. I needed React and [react-three-fiber](https://github.com/pmndrs/react-three-fiber) to produce a 3D model on my landing page. This was no problem in Astro and it was even easy and smooth.
 
 <br></br>
 ![new-website2.png](/posts/new-website2.png)

@@ -11,18 +11,19 @@ export interface Props {
     createdAt?: string
     updatedAt?: string
     heroImage?: string
-    tags: string[]
+    tags: string[],
+    fbImage?: string,
   }
 }
 const {
-  content: { title, description, heroImage }
+  content: { title, description, heroImage, fbImage }
 } = Astro.props
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <BaseHead title={title} description={description} />
+    <BaseHead title={title} description={description} fbImage={fbImage} />
   </head>
 
   <Body>
