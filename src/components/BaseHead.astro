@@ -27,7 +27,7 @@ const { title, description, image = '/cover.jpg',fbImage } = Astro.props
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(fbImage)} />
+<meta property="og:image" content={new URL(fbImage, Astro.url)} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
