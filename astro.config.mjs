@@ -20,7 +20,7 @@ import image from "@astrojs/image";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://uses.craftz.dog/',
+  site: 'https://nazmusashrafi.netlify.app/',
   integrations: [sitemap(), tailwind(), react(), image()],
   markdown: {
     extendDefaultPlugins: true,
@@ -32,8 +32,8 @@ export default defineConfig({
       h5: 'font-bold font-mplus',
       h6: 'font-bold font-mplus',
       img: 'border border-slate-300 dark:border-zinc-700 rounded-xl mb-6',
-      p: 'mb-6',
-      a: 'underline underline-offset-2 hover:text-blue-500 decoration-blue-500'
+      
+    
 
       // img: 'border border-slate-300 dark:border-zinc-700 rounded-xl mb-6',
       // a: 'underline underline-offset-2 hover:text-orange-500 decoration-orange-500'
