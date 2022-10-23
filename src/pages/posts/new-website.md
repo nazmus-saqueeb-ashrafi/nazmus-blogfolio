@@ -8,7 +8,7 @@ updatedAt: 1663138544071
 tags:
   - Blog
 heroImage: /posts/new-website0.png
-slug: new-portfolio-website
+slug: new-website
 fbImage: /posts/new-website1.png
 ---
 

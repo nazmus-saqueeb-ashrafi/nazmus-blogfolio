@@ -8,6 +8,7 @@ updatedAt: 1663138544072
 tags:
   - Projects
 heroImage: /posts/multitimer0.png
+fbImage: /posts/multitimer0.png
 slug: multi-timer
 ---
 
