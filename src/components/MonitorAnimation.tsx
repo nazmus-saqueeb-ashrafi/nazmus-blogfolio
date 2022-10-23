@@ -7,9 +7,9 @@ import { useFrame } from "@react-three/fiber";
 
 
 export default () => {
-  const { scene } = Drei.useGLTF("/4aiscreenop.glb");
+  // const { scene } = Drei.useGLTF("/4aiscreenop.glb");
 
-  
+  const { scene } = Drei.useGLTF("/aiscreen23.glb");
 
   const Model = ()=>{
 
@@ -21,13 +21,16 @@ export default () => {
     // ref.current.rotation.z = (1 + Math.sin(t / 1.5)) / 20
     // ref.current.position.y = (1 + Math.sin(t / 1.5)) / 10
     
-    ref.current.rotation.y = t/4
-    ref.current.rotation.z = 0
-    ref.current.rotation.x = 0
+    // ref.current.rotation.y = t/4
+    
+    // ref.current.rotation.z = 0
+    // ref.current.rotation.x = 0
 
-    ref.current.position.y = -3
+    ref.current.position.y = -1.5
+    ref.current.position.x = -0.5
     
-    
+    ref.current.rotation.y = Math.PI / 1.75 + Math.cos(t / 4) / 2
+    ref.current.rotation.y = -Math.sin(t / 4) / 2
   })
 
   return (
@@ -60,7 +63,7 @@ export default () => {
       }>
       <Fiber.Canvas>
 
-        <Drei.PerspectiveCamera makeDefault zoom={1.1} />
+        <Drei.PerspectiveCamera makeDefault zoom={1.2} />
         <Drei.OrbitControls enablePan enableZoom enableRotate />
         {/* <Drei.Sky
           distance={450000}
