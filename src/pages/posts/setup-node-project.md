@@ -70,6 +70,8 @@ node_modules
 
 - Run 'npm run server'
 
+<hr></hr>
+
 And voila, you are all done setting up.
 
 <br></br>
