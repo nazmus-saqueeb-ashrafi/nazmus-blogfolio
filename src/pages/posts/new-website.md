@@ -24,7 +24,7 @@ You can clearly see in the above image, how much better I can present a project 
 Now, on to why I chose Astro to built the blog.
 <br></br>
 
-## Astro ships with no Javascript by default.
+## Astro ships with no Javascript by default
 
 Astro has file based routing, components, and prop sending and much more of what is present in a modern Javascript framework all without the Javascript being shipped to the browser. This makes page loads super fast. There is no component sharing between pages but that is not nessasary for a blog page lke mine.
 
