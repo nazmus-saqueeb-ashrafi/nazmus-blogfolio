@@ -7,9 +7,9 @@ createdAt: 1663138523827
 updatedAt: 1663138544072
 tags:
   - Blog
-heroImage: /posts/nodejs_cover.png
+heroImage: /posts/node0.png
 slug: setup-node-project
-fbImage: /posts/nodejs_cover.png
+fbImage: /posts/node0.png
 ---
 
 <style>
