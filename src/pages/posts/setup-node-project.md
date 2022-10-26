@@ -7,9 +7,9 @@ createdAt: 1663138523827
 updatedAt: 1663138544072
 tags:
   - Blog
-heroImage: /posts/node-express0.png
+heroImage: /posts/node-express.png
 slug: setup-node-project
-fbImage: /posts/node-express0.png
+fbImage: /posts/node-express.png
 ---
 
 <style>
