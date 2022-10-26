@@ -2,7 +2,7 @@
 description: How I used Bravo Studio to make an app in less than a week.
 public: true
 layout: ../../layouts/BlogPost.astro
-title: No code platforms
+title: No Code Platforms
 createdAt: 1663138523828
 updatedAt: 1663138544073
 tags:
