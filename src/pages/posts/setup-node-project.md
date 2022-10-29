@@ -1,5 +1,5 @@
 ---
-description: How to setup a Node server with Express and connect to a database in MongoDB
+description: How to setup a Node server with Express and connect to a database in MongoDB to save data
 public: true
 layout: ../../layouts/BlogPost.astro
 title: Node + Express Server + MongoDB
@@ -93,7 +93,7 @@ const port = process.env.PORT || 3000;
 const app = express();
 
 // our route pointer
-app.use("/api/posts", require("./routes/postRoutes"));
+app.use("/api/post", require("./routes/postRoutes"));
 
 // listening
 app.listen(port, () => console.log(`Server started on port ${port}`));
@@ -125,7 +125,7 @@ PORT = 3000
 
 ```
 
-<hr></hr>
+<br></br>
 
 ```javascript
 // server/routes/postRoutes.js
@@ -141,7 +141,8 @@ export default router;
 
 <hr></hr>
 
-- Next we can use a http client like Postman to access our route. Just use the GET, POST, PUT, DELETE request _'http://localhost:5000/api/posts'_.
+- Once all this is done run the command "npm run server". The server should connect and be listening to port 3000.
+- Next we can use a http client like Postman or Insomnia to access our route. Just use the GET, POST, PUT, DELETE request _'http://localhost:3000/api/post'_. To test send a post request to get a message of "set post" back.
 
 <br></br>
 
@@ -205,6 +206,94 @@ app.use("/post", PostRoute);
 
 <br></br>
 
+## Making a Model
+
+<hr></hr>
+Now we will create a model/schema which will be used to save the posts in our database.
+<hr></hr>
+
+```javascript
+// server/Models/postModel.js
+
+import mongoose from "mongoose";
+
+const { Schema } = mongoose;
+
+const postSchema = new Schema({
+  description: {
+    type: String,
+    required: [true, "Please add a description"],
+  },
+});
+
+// we register the model with mongoose
+var PostModel = mongoose.model("Posts", postSchema);
+
+export default PostModel;
+```
+
+<br></br>
+
+## Modify routes to save data in database
+
+<hr></hr>
+To make things less complex and more organized we will seperate the routes and the works the routes do in a seperate folder called controller.
+<hr></hr>
+Modify the route file.
+<br></br>
+
+```javascript
+// server/routes/postRoutes.js
+import express from "express";
+const router = express.Router();
+
+import { createPost, getPosts } from "../Controllers/PostController.js";
+
+router.post("/", createPost);
+router.get("/get-all-posts", getPosts);
+
+export default router;
+```
+
+<br></br>
+Import the model and define the activities the routes should perform when hit. Do this in the controller file.
+
+<hr></hr>
+
+```javascript
+// server/Controllers/PostController.js
+import PostModel from "../Models/postModel.js";
+
+// Create new Post
+export const createPost = async (req, res) => {
+  const newPost = new PostModel(req.body);
+  try {
+    const savedPost = await newPost.save();
+    res.status(200).json(savedPost);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};
+
+// Get all Posts
+export const getPosts = async (req, res) => {
+  try {
+    const posts = await PostModel.find();
+    res.status(200).json(posts);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};
+```
+
+<br></br>
+
+Thats it, you are set. Hit the route _'http://localhost:3000/api/post'_ with a POST request and a description in the body (using Postman). Your post should be saved in the database.
+
+<br></br>
+![node1.png](/posts/node1.png)
+<br></br>
+
 ## Git repository (optional)
 
 <hr></hr>
@@ -216,11 +305,7 @@ Run the following commands and create the initial commit.
 - 'git commit -m 'Initial commit'
 
 <br></br>
-Once all this is done run the command "npm run server". The server should connect and be listening to port 3000.
 
-<hr></hr>
-In Postman send a post request to "http://localhost:3000/api/post" to get a message of "set post" back.
-<hr></hr>
-The front end part of the workflow will be continued in the article about Redux toolkit workflow.
+The front end part of the workflow will be continued in my article about Redux Toolkit.
 
 <br></br>
