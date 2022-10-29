@@ -1,8 +1,8 @@
 ---
-description: How to setup a Node server with Express.
+description: How to setup a Node server with Express and connect to a database in MongoDB
 public: true
 layout: ../../layouts/BlogPost.astro
-title: Node + Express Server
+title: Node + Express Server + MongoDB
 createdAt: 1663138523827
 updatedAt: 1663138544072
 tags:
@@ -38,11 +38,11 @@ To setup a Node server with Express we will initialize project folder with some 
 <hr></hr>
 
 - Make a directory (with project name) and open VScode in it.
-- Make a folder called 'backend' in the root. Create file called 'server.js' in the backend folder.
-- Run 'npm init'
-  - set 'server.js' as entry point
+- Make a folder called 'server' in the root. Create file called 'index.js' in the backend folder.
+- Run 'npm init' in the server folder
+  - set 'index.js' as entry point
   - this will create a 'package.json' in the root
-- Create a '.gitignore' file in the root and include
+- Create a '.gitignore' file in the root and include (optional)
 
 <hr></hr>
 
@@ -61,8 +61,8 @@ node_modules
 
 ```json
 "scripts": {
-    "start": "node backend/server.js",
-    "server": "nodemon backend/server.js"
+    "start": "node server/index.js",
+    "server": "nodemon server/index.js"
 },
 ```
 
@@ -80,12 +80,12 @@ And voila, you are all done setting up.
 
 <hr></hr>
 
-- Now in the 'server.js' file, we will listen for a port and set up a pointer to out routes.
+- Now in the 'index.js' file, we will listen for a port and set up a pointer to out routes.
 
 <hr></hr>
 
 ```javascript
-// backend/server.js
+// server/index.js
 const express = require("express");
 const dotenv = require("dotenv").config();
 const port = process.env.PORT || 3000;
@@ -109,46 +109,103 @@ app.listen(port, () => console.log(`Server started on port ${port}`));
 
 NODE_ENV = development
 PORT = 3000
+
 ```
 
 <hr></hr>
 
-- create a folder named 'routes' and a file named 'postRoutes.js' in it.
-  We keep our routes seperated from the 'server.js' file because we want to keep our routes in an organized fashion.
+- Create a folder named 'routes' and a file named 'postRoutes.js' in it.
+  We keep our routes seperated from the 'index.js' file because we want to keep our routes in an organized fashion.
+- Do not forget to add the type to package.json so that it accept the module import statement.
+<hr></hr>
+
+```json
+
+"type": "module",
+
+```
 
 <hr></hr>
 
 ```javascript
-// backend/routes/postRoutes.js
-const express = require("express");
+// server/routes/postRoutes.js
+import express from "express";
 const router = express.Router();
-
-module.exports = router;
-
-router.get("/", (req, res) => {
-  res.status(200).json({ message: "get post" });
-});
 
 router.post("/", (req, res) => {
   res.status(200).json({ message: "set post" });
 });
 
-router.put("/:id", (req, res) => {
-  res.status(200).json({ message: `update post ${req.params.id}` });
-});
-
-router.delete("/:id", (req, res) => {
-  res.status(200).json({ message: `delete post ${req.params.id}` });
-});
+export default router;
 ```
 
 <hr></hr>
 
-- Next we can use a http client like Postman to access our route. Just use the GET,POST,PUT,DELETE request _'http://localhost:5000/api/posts'_.
+- Next we can use a http client like Postman to access our route. Just use the GET, POST, PUT, DELETE request _'http://localhost:5000/api/posts'_.
 
 <br></br>
 
-## Git repository
+## Modify index.js to connect a Mongo Database
+
+<hr></hr>
+Create a new project in Mongodb.com and create a new database in it. Once you get a connection string use that to connect you app to the database using Express.
+
+<hr></hr>
+
+Update the env file.
+
+<hr></hr>
+
+```.env;
+
+NODE_ENV = development
+PORT = 3000
+MONGO_DB = "the connection string"
+```
+
+<br></br>
+
+```javascript
+// server/index.js
+
+import express from "express"; // needs to be installed
+import cors from "cors"; // needs to be installed
+import bodyParser from "body-parser"; // needs to be installed
+import dotenv from "dotenv"; // needs to be installed
+import mongoose from "mongoose";
+import PostRoute from "./Routes/PostRoute.js";
+
+// Routes
+
+const app = express();
+app.use(cors());
+
+// Middleware
+app.use(bodyParser.json({ limit: "30mb", extended: true }));
+app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
+
+dotenv.config();
+
+mongoose
+  .connect(process.env.MONGO_DB, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() =>
+    app.listen(process.env.PORT, () =>
+      console.log(`Listening at ${process.env.PORT}`)
+    )
+  )
+  .catch((error) => console.log(error));
+
+// usage of routes
+
+app.use("/post", PostRoute);
+```
+
+<br></br>
+
+## Git repository (optional)
 
 <hr></hr>
 
@@ -157,3 +214,13 @@ Run the following commands and create the initial commit.
 - 'git init'
 - 'git add .'
 - 'git commit -m 'Initial commit'
+
+<br></br>
+Once all this is done run the command "npm run server". The server should connect and be listening to port 3000.
+
+<hr></hr>
+In Postman send a post request to "http://localhost:3000/api/post" to get a message of "set post" back.
+<hr></hr>
+The front end part of the workflow will be continued in the article about Redux toolkit workflow.
+
+<br></br>
