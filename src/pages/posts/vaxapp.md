@@ -39,13 +39,12 @@ slug: vax app
 A vaccination application with complete documentation.
 <br/><br/>
 
-|                                                                     |     |
-| ------------------------------------------------------------------- | --- |
-| <span id='badge'>Platform</span> Web                                |
-| <span id='badge'>Stack</span> Django, Tailwind, Postgresql          |
-| <span id='badge'>Live Link</span> [Heroku Link][heroku link]        |
-| <span id='badge'>Documentation Link</span> [MS Word Link][doc link] |
-| <span id='badge'>Github Link</span> [Github Link][github link]      |
+|                                                                |     |
+| -------------------------------------------------------------- | --- |
+| <span id='badge'>Platform</span> Web                           |
+| <span id='badge'>Stack</span> Django, Tailwind, Postgresql     |
+| <span id='badge'>Live Link</span> [Heroku Link][heroku link]   |
+| <span id='badge'>Github Link</span> [Github Link][github link] |
 
 <br>
 
@@ -57,3 +56,8 @@ Once the vaccination slot is complete the system allowed for accumulation of dat
 
 This was also the first application that I developed and also made a solid documentation for, complete with requirement elicitation, and all kinds of diagrams like use case diagram, sequence diagrams, activity diagrams, ERD etc.
 <br/><br/>
+
+<span id='badge'>Documentation</span>
+<br></br>
+
+<iframe src="https://onedrive.live.com/embed?cid=6B449848EF66FC56&amp;resid=6B449848EF66FC56%21107&amp;authkey=ACReDvcE6TGJQx4&amp;em=2&amp;wdPrint=0&amp;wdEmbedCode=0" width="476px" height="588px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> document, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
