@@ -306,6 +306,6 @@ Run the following commands and create the initial commit.
 
 <br></br>
 
-The front end part of the workflow will be continued in my article about Redux Toolkit.
+<!-- The front end part of the workflow will be continued in my article about Redux Toolkit. -->
 
 <br></br>
