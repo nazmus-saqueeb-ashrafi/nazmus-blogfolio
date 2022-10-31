@@ -1,5 +1,5 @@
 ---
-description: How to setup a Node server with Express and connect to a database in MongoDB to save data
+description: How to setup a Node server with Express and connect to a database in MongoDB to save data.
 public: true
 layout: ../../layouts/BlogPost.astro
 title: Node + Express Server + MongoDB
