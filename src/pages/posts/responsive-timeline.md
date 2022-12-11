@@ -145,7 +145,8 @@ double globalSize(double size, double width){
 
 Now we will implement the widget responsible for generating the timeline. I will explain part by part and the total code will be shown at the end the the article, so scroll to the if you do not need the explanation.
 
-Our timeline widget will require a list of maps which it will iterate over and generate the timeline. Here list is called apiData in my example. A single map contains 3 texts, a message array which can also take in null if required. A node color which takes in Color and can also take null if required. You can also modify the widget to take in a nodeIcon which can be used to set the icons of each node of the timeline.
+Our timeline widget will require a list of maps which it will iterate over and generate the timeline. Here list is called apiData in my example. A single map contains 3 texts, a message array which can also take in null if required. A node color which takes in Color and can also take null if required. You can also modify the widget to take in a nodeIcon which can be used to set the icons of each node of the timeline. 
+Depending on what is passed in the list the timeline is automatically built. If the message list is included in a map the sub timeline will also be build automatically.
 
 <br>
 
@@ -184,6 +185,8 @@ final List<Map?>? apiData =
 ```
 
 <br>
+
+In the iterateItem() function we will iterate through the apiData list and return a SingleRow widget.
 
 <br>
 
